@@ -1,0 +1,272 @@
+.zone-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.zone-drawer-container {
+  background: white;
+  border-radius: 12px;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.zone-drawer-header {
+  padding: 20px 30px;
+  border-bottom: 2px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zone-drawer-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.close-btn:hover {
+  background: #f3f4f6;
+  color: #333;
+}
+
+.zone-drawer-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  border-radius: 8px;
+  overflow: auto;
+  max-height: calc(95vh - 120px);
+}
+
+.drawing-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  cursor: crosshair;
+  border-radius: 8px;
+}
+
+.zone-drawer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.control-section {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.control-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.control-section select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.control-section select:disabled {
+  background: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.zone-info {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ready-indicator {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.control-section button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #e5e7eb;
+  color: #333;
+}
+
+.control-section button:hover:not(:disabled) {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.control-section button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-complete {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+.btn-complete:hover:not(:disabled) {
+  background: #059669 !important;
+}
+
+.zones-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.no-zones {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.zone-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.zone-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.zone-name {
+  flex: 1;
+  font-weight: 600;
+  color: #333;
+}
+
+.zone-points {
+  font-size: 12px;
+  color: #666;
+}
+
+.delete-zone {
+  width: auto !important;
+  padding: 4px 8px !important;
+  margin: 0 !important;
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+  font-size: 16px !important;
+}
+
+.delete-zone:hover {
+  background: #fecaca !important;
+}
+
+.instructions {
+  background: #eff6ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.instructions ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #1e40af;
+}
+
+.instructions strong {
+  color: #1e3a8a;
+}
+
+.save-section {
+  background: transparent;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-save {
+  background: #3b82f6 !important;
+  color: white !important;
+  flex: 1;
+}
+
+.btn-save:hover {
+  background: #2563eb !important;
+}
+
+.btn-cancel {
+  background: #6b7280 !important;
+  color: white !important;
+  flex: 1;
+}
+
+.btn-cancel:hover {
+  background: #4b5563 !important;
+}
+
+@media (max-width: 1200px) {
+  .zone-drawer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .zone-drawer-controls {
+    max-height: 300px;
+  }
+}
