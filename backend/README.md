@@ -1,26 +1,58 @@
 # Backend - Smart Queue Monitoring System
 
-Python backend for queue detection and WebSocket server.
+Python Flask + WebSocket server for real-time queue monitoring.
 
-## Setup
+## Local Setup
 
 ```bash
 pip install -r requirements.txt
+python server.py
 ```
 
-## Run
+Server runs on `http://localhost:5000`
+
+## Deploy to Railway
+
+### Option 1: Via Railway Dashboard
+
+1. Go to https://railway.app
+2. Click "New Project"
+3. Select "Deploy from GitHub repo"
+4. Choose your repository
+5. Select "backend" as root directory
+6. Railway will auto-detect Python and deploy
+7. Add environment variable (optional): `PORT=5000`
+8. Click "Deploy"
+
+### Option 2: Via Railway CLI
 
 ```bash
-python scripts/start_api.sh
+# Install Railway CLI
+npm i -g @railway/cli
+
+# Login
+railway login
+
+# Link project
+railway link
+
+# Deploy
+railway up
 ```
 
-## Deploy to Railway/Render
+## Environment Variables
 
-1. Push to GitHub
-2. Create new project on Railway or Render
-3. Set environment variable: `PORT=5000`
-4. Deploy
+- `PORT`: Server port (default: 5000, Railway sets this automatically)
 
-## Configuration
+## API Endpoints
 
-Edit `config/zones.json` to configure monitoring zones.
+- `GET /` - Health check
+- `GET /api/health` - Health status
+- `GET /api/config` - Get zone configuration
+- WebSocket: Connect to root URL for real-time updates
+
+## After Deployment
+
+Copy your Railway URL (e.g., `https://your-app.railway.app`) and use it in the frontend environment variables:
+- `REACT_APP_API_URL=https://your-app.railway.app`
+- `REACT_APP_WS_URL=wss://your-app.railway.app`
